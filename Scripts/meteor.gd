@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 # Déclaration des variables
+# Variables des enfants du noeud RigidBody2D
 var collider: CollisionShape2D
 var sprite: Sprite2D
 
@@ -14,9 +15,9 @@ func _ready() -> void:
 	collider = $CollisionShape2D
 	sprite = $Sprite2D
 	
-	# Initialisation du random
+	# Initialisation du générateur
 	randomGenerator.randomize()
-	# Tirage d'un nombre entre 4 et 10
+	# Tirage d'un nombre entre 2 et 8
 	randomSize = randomGenerator.randi_range(2, 8)
 
 	# Taille aléatoire
@@ -28,9 +29,15 @@ func _ready() -> void:
 	randomScale = randomGenerator.randi_range(-5, 5)
 	
 	if (randomScale == 0): # Pour éviter d'avoir une rotation à 0
-		randomScale -= 1
+		randomScale = -1
+		
+	# Direction vers le centre (la moitié de la taille de l’écran)
+	var target = Vector2(960, 540) # centre scene (à remplacer par la pos du joueur plus tard)
+	var direction = (target - global_position).normalized()
 	
-
+	# Appliquer une vitesse linéaire vers le centre
+	var speed = randomGenerator.randi_range(100, 200) # vitesse aléatoire en pixels/sec
+	linear_velocity = direction * speed
 
 func _process(delta: float) -> void:
 	angular_velocity = randomScale # Tourne à l'infini à une vitesse et à un sens aléatoire
