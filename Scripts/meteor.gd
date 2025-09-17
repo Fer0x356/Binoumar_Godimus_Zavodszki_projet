@@ -8,7 +8,7 @@ var sprite: Sprite2D
 # Générateur de nombre aléatoire pour la taille des météores
 var randomGenerator := RandomNumberGenerator.new()
 var randomSize: float
-var randomScale: float
+var randomRotationSpeed: float
 
 func _ready() -> void:
 	# Récupération des enfants
@@ -26,18 +26,23 @@ func _ready() -> void:
 	sprite.scale = scale_vec
 	
 	# Velocité aléatoire
-	randomScale = randomGenerator.randi_range(-5, 5)
+	randomRotationSpeed = randomGenerator.randi_range(-5, 5)
 	
-	if (randomScale == 0): # Pour éviter d'avoir une rotation à 0
-		randomScale = -1
-		
-	# Direction vers le centre (la moitié de la taille de l’écran)
-	var target = Vector2(960, 540) # centre scene (à remplacer par la pos du joueur plus tard)
+	# Pour éviter d'avoir une rotation à 0
+	if (randomRotationSpeed == 0): 
+		randomRotationSpeed = -1
+	
+	# Vitesse de base
+	var base_speed = randomGenerator.randi_range(100, 200)
+	
+	# Plus le météore est gros, plus il est lent
+	var speed = base_speed / sqrt(randomSize) # Racine de la taille pour éviter que les gros soient trop lents
+	
+	# Direction vers le centre
+	var target = Vector2(960, 540)
 	var direction = (target - global_position).normalized()
-	
-	# Appliquer une vitesse linéaire vers le centre
-	var speed = randomGenerator.randi_range(100, 200) # vitesse aléatoire en pixels/sec
+	# Vitesse finale
 	linear_velocity = direction * speed
 
 func _process(delta: float) -> void:
-	angular_velocity = randomScale # Tourne à l'infini à une vitesse et à un sens aléatoire
+	angular_velocity = randomRotationSpeed # Tourne à l'infini à une vitesse et à un sens aléatoire
