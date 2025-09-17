@@ -20,5 +20,3 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(10.24, 10.24)
 texture = ExtResource("1_qxnof")
-
-[node name="Camera2D" type="Camera2D" parent="."]
