@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Binoumar_Godimus_Zavodszki_projet"
-run/main_scene="uid://bmp4ial25ywvx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
