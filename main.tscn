@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0cwt1mnexchn"]
+
+[ext_resource type="PackedScene" uid="uid://bmp4ial25ywvx" path="res://Scene/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bhs883oajuq5m" path="res://Scene/spawnMeteors.tscn" id="2_0xm2m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Marker2D" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(-174, -246)
