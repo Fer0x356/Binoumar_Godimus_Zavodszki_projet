@@ -1,3 +1,2 @@
-res://meteor.gd
-res://Ennemies/meteor.tscn
-res://Scripts/meteor.gd
+res://HUD/Menu/Menu.tscn
+res://HUD/Menu/menu.gd
