@@ -32,8 +32,10 @@ func _ready() -> void:
 	var base_speed = randomGenerator.randi_range(100, 200)
 	speed = base_speed / (sqrt(randomSize)/2)
 	
-	var target = Vector2(960, 540)
-	direction = (target - global_position).normalized()
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var target = players[0].global_position
+		direction = (target - global_position).normalized()
 
 func _physics_process(delta: float) -> void:
 	# Déplacement constant
