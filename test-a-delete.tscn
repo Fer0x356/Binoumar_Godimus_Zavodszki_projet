@@ -5,8 +5,8 @@
 
 [node name="TestADelete" type="Node2D"]
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("1_3y1o3")]
+[node name="Player" parent="." instance=ExtResource("1_3y1o3")]
 position = Vector2(578, 325)
 
-[node name="Meteor" parent="." groups=["meteores"] instance=ExtResource("2_tyeju")]
+[node name="Meteor" parent="." instance=ExtResource("2_tyeju")]
 position = Vector2(-130, -107)

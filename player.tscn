@@ -6,20 +6,20 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 32.0
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" groups=["player"]]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["player"]]
 script = ExtResource("1_onrkg")
 
-[node name="PlayerHitbox" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="PlayerHitbox" type="CollisionShape2D" parent="RigidBody2D" groups=["player"]]
 shape = SubResource("CircleShape2D_hqtel")
 
-[node name="Vaisseau" type="Sprite2D" parent="RigidBody2D"]
+[node name="Vaisseau" type="Sprite2D" parent="RigidBody2D" groups=["player"]]
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_i3pqv")
 
-[node name="Marker3D" type="Marker2D" parent="RigidBody2D"]
+[node name="Marker3D" type="Marker2D" parent="RigidBody2D" groups=["player"]]
 position = Vector2(1, -28)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["player"]]
