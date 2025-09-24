@@ -17,9 +17,6 @@ func _process(delta: float) -> void:
 		shoot()
 
 func take_damage(amount: int) -> void:
-	print("Player hit! Lives before: ", life)
 	life -= amount
-	print("Lives after: ", life)
 	if life <= 0:
-		print("Game Over!")
 		queue_free()

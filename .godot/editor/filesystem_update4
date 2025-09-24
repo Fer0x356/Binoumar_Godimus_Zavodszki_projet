@@ -1,3 +1,7 @@
 res://Ennemies/meteor.tscn
 res://player.tscn
 res://test-a-delete.tscn
+res://Scripts/bullet.gd
+res://Scene/bullet.tscn
+res://Scripts/meteor.gd
+res://Scripts/player.gd

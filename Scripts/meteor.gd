@@ -45,11 +45,8 @@ func _physics_process(delta: float) -> void:
 
 # Fonction pour prendre des dégâts
 func take_damage(amount: int) -> void:
-	print("Meteor hit! Life before: ", life)
 	life -= amount
-	print("Life after: ", life)
 	if life <= 0:
-		print("Meteor destroyed")
 		queue_free()
 
 # Fonction pour que le météore fasse des dégâts
@@ -57,5 +54,4 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		if body.has_method("take_damage"):
 			body.take_damage(1)
-			print("PLAYER TOOK 1 DAMAGE")
 		queue_free()
