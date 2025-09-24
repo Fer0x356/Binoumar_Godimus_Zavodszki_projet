@@ -6,3 +6,4 @@
 script = ExtResource("1_nw7h7")
 
 [node name="MeteorTimer" type="Timer" parent="."]
+autostart = true
