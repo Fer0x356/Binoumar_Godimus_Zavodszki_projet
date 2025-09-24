@@ -18,3 +18,5 @@ shape = SubResource("RectangleShape2D_sj187")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D_bullet"]
 texture = ExtResource("2_jm66p")
+
+[connection signal="body_entered" from="Area2D_bullet" to="Area2D_bullet" method="_on_body_entered"]
