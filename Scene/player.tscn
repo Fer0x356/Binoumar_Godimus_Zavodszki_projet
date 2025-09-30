@@ -24,4 +24,4 @@ texture = SubResource("CompressedTexture2D_kelma")
 [node name="Marker3D" type="Marker2D" parent="RigidBody2D" groups=["player"]]
 position = Vector2(1, -28)
 
-[node name="Camera2D" type="Camera2D" parent="." groups=["player"]]
+[node name="Camera2D" type="Camera2D" parent="."]

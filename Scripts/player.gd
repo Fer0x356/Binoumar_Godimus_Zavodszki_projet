@@ -3,7 +3,7 @@ extends RigidBody2D
 const BULLET = preload("uid://kxk11e6gc30o")
 
 var life = 3
-var fire_rate : float = 0.2
+var fire_rate : float = 0.15
 var can_shoot : bool = true
 
 func shoot():
