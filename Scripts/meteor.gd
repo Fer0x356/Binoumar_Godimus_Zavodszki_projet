@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var collider: CollisionShape2D
+var area_collider: CollisionShape2D
 var sprite: Sprite2D
 
 var randomGenerator := RandomNumberGenerator.new()
@@ -13,17 +14,23 @@ var direction: Vector2
 
 func _ready() -> void:
 	collider = $CollisionShape2D
+	area_collider = $Area2D/CollisionShape2D
 	sprite = $Sprite2D
+	
+	# Configuration des collisions : les météores ne se bloquent pas entre eux
+	collision_layer = 2  # Les météores sont sur la layer 2
+	collision_mask = 1   # Les météores détectent seulement la layer 1 (joueur, murs, etc.)
 	
 	randomGenerator.randomize()
 	randomSize = randomGenerator.randi_range(2, 8)
 
 	var scale_vec = Vector2(randomSize, randomSize)
 	collider.scale = scale_vec
+	area_collider.scale = scale_vec  # Ajout de cette ligne !
 	sprite.scale = scale_vec
 	
 	# La vie dépend de la taille
-	life = randomSize
+	life = 1
 	
 	randomRotationSpeed = randomGenerator.randi_range(-180, 180)
 	if randomRotationSpeed == 0: 

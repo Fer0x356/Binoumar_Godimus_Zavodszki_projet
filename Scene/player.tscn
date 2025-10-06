@@ -11,6 +11,7 @@ load_path = "res://.godot/imported/vaisseau.png-480e54f0e47d7149ce9693a3a7ba8b12
 [node name="Player" type="Node2D" groups=["player"]]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="RigidBody2D" groups=["player"]]
