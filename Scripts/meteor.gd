@@ -4,6 +4,10 @@ var collider: CollisionShape2D
 var area_collider: CollisionShape2D
 var sprite: Sprite2D
 
+# Sons (à configurer dans la scène)
+@onready var explosion_sound: AudioStreamPlayer2D = $"../ExplosionSound"
+@onready var explode_sound = $ExplodeSound if has_node("ExplodeSound") else null
+
 var randomGenerator := RandomNumberGenerator.new()
 var randomSize: float
 var randomRotationSpeed: float
@@ -26,6 +30,12 @@ func _ready() -> void:
 
 	var scale_vec = Vector2(randomSize, randomSize)
 	collider.scale = scale_vec
+	area_collider.scale = scale_vec  # Ajout de cette ligne !
+	sprite.scale = scale_vec
+	
+	# La vie dépend de la taille
+	life = 1
+
 	area_collider.scale = scale_vec  # Ajout de cette ligne !
 	sprite.scale = scale_vec
 	
@@ -55,7 +65,14 @@ func _physics_process(delta: float) -> void:
 # Fonction pour prendre des dégâts
 func take_damage(amount: int) -> void:
 	life -= amount
+	explosion_sound.play()
+	
 	if life <= 0:
+		# Jouer le son d'explosion
+		if explode_sound:
+			explode_sound.play()
+			# Attendre que le son finisse avant de détruire
+			await explode_sound.finished
 		queue_free()
 
 # Fonction pour que le météore fasse des dégâts

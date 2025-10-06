@@ -1,6 +1,9 @@
 extends RigidBody2D
 
 const BULLET = preload("uid://kxk11e6gc30o")
+@onready var shoot_sound: AudioStreamPlayer2D = $"../ShootSound"
+@onready var death_sound: AudioStreamPlayer2D = $"../DeathSound"
+@onready var take_damages: AudioStreamPlayer2D = $"../TakeDamage"
 
 var life = 3
 var fire_rate : float = 0.2
@@ -14,6 +17,7 @@ func shoot():
 	var b = BULLET.instantiate()
 	owner.add_child(b)
 	b.global_transform = $Marker3D.global_transform
+	shoot_sound.play()
 	
 	await get_tree().create_timer(fire_rate).timeout
 	can_shoot = true
@@ -24,9 +28,10 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-		
 
 func take_damage(amount: int) -> void:
 	life -= amount
+	take_damages.play()
 	if life <= 0:
+		death_sound.play()
 		queue_free()
