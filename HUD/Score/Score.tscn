@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://diktkceslbr1j"]
+
+[ext_resource type="Script" uid="uid://bo8hve33at33v" path="res://Scripts/score.gd" id="1_7oob7"]
+
+[node name="Score" type="Node2D"]
+
+[node name="lblScore" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_7oob7")
