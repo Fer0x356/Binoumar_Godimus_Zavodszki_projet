@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhs883oajuq5m"]
+
+[ext_resource type="Script" uid="uid://dnfvyukr4idy1" path="res://Scripts/meteor_spawner.gd" id="1_nw7h7"]
+
+[node name="MeteorSpawner" type="Marker2D"]
+script = ExtResource("1_nw7h7")
+
+[node name="MeteorTimer" type="Timer" parent="."]
+autostart = true
