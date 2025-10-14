@@ -41,11 +41,13 @@ Faites en un fork et poussez régulièrement le code source, la documentation, l
 
 
 ## Éléments de Notation (4 Notes) :
+Le projet sera a rendre le 31/10 à 23h59 Maximum, je me permet également de modifier la notation :
 
--	Le code (Coef 2) : La notation dépendra de la lisibilité, de la maintenabilité, de l'efficacité et de la conformité aux normes de codage et des commentaires.
--	Les tests (Coef 2) : La notation dépendra de la couverture des tests, de la pertinence de tests et de la détection d'erreurs et du plan de test fournit.
--	La documentation (Coef 1) : La notation dépendra de l'exhaustivité, de la clarté et de la précision de la documentation technique et du cahier des charges.
--	Assiduité (Coef 0,5) : Comme nous avons plusieurs heures de TP devant nous, l’assiduité sera également notée, j’entends par là, un développement poussé régulièrement sur Github, assurez-vous d’avoir un repo public afin que je puisse vérifier 
+- Le code (Coef 3) : La notation dépendra de la lisibilité, de la maintenabilité, de l'efficacité et de la conformité aux normes de codage et des commentaires.
+- Les tests (Coef 3) : La notation dépendra de la couverture des tests, de la pertinence de tests et de la détection d'erreurs et du plan de test fournit.
+- La documentation (Coef 2) : La notation dépendra de l'exhaustivité, de la clarté et de la précision de la documentation technique et du cahier des charges.
+- Git (Coef 2) : Un développement poussé régulièrement sur Github, le nommage des branches et l'utilisation des pull request, assurez-vous d’avoir un repo public afin que je puisse vérifier.
+- Assiduité (Coef 1) : Une note sur 20 où chaque absence en TP/TD enlèvera 2 points.
 
 ## Conseils :
 
