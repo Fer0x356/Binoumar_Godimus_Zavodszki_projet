@@ -1,10 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck3nxafxard4d"]
+[gd_scene load_steps=13 format=3 uid="uid://ck3nxafxard4d"]
 
 [ext_resource type="Script" uid="uid://c65x7n2q4vlk4" path="res://Scripts/meteor.gd" id="1_daj6f"]
 [ext_resource type="Texture2D" uid="uid://ci00kwyickyj5" path="res://Sprites/Sprite-Meteore.png" id="1_qxnof"]
 [ext_resource type="AudioStream" uid="uid://cxnwwmjlc43jr" path="res://Sounds/meteor_explosion.mp3" id="3_h2xkk"]
+[ext_resource type="Texture2D" uid="uid://c1pn716226xyv" path="res://Sprites/explosion-spitesheet.png" id="3_hivml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_daj6f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4mt3"]
+atlas = ExtResource("3_hivml")
+region = Rect2(0, 0, 189, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gr7o"]
+atlas = ExtResource("3_hivml")
+region = Rect2(189, 0, 189, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7rk2"]
+atlas = ExtResource("3_hivml")
+region = Rect2(378, 0, 189, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8qh1"]
+atlas = ExtResource("3_hivml")
+region = Rect2(0, 220, 189, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4sgg"]
+atlas = ExtResource("3_hivml")
+region = Rect2(189, 220, 189, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3dqu"]
+atlas = ExtResource("3_hivml")
+region = Rect2(378, 220, 189, 220)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tw0vd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4mt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gr7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7rk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8qh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4sgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3dqu")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 15.0
+}]
 
 [node name="Meteor" type="Node2D" groups=["meteor", "meteores"]]
 
@@ -29,6 +80,11 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(10.24, 10.24)
 texture = ExtResource("1_qxnof")
+
+[node name="ExplosionAnimation" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_tw0vd")
+animation = &"explode"
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_h2xkk")
