@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bhwwdwx61ypis" path="res://Scripts/bullet.gd" id="1_k7h5k"]
 [ext_resource type="Texture2D" uid="uid://flimvmahk2b5" path="res://Sprites/projectile_rouge.png" id="2_jm66p"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sj187"]
 size = Vector2(54, 8)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D_bullet" type="Area2D" parent="."]
+collision_mask = 3
 script = ExtResource("1_k7h5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_bullet"]

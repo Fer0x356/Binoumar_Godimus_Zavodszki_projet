@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bmp4ial25ywvx" path="res://Scene/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bhs883oajuq5m" path="res://Scene/spawnMeteors.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c7g70k7jdcxi0" path="res://Scene/background.tscn" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://dk25l1tkxaq4g" path="res://Sounds/bgMusic/asgore.wav" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dd7e0hv6j12q7" path="res://Scripts/background_music.gd" id="4_1bvp3"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,3 +14,8 @@
 
 [node name="Marker2D" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(-1, -310)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h2yge")
+volume_db = -10.0
+script = ExtResource("4_1bvp3")

@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmp4ial25ywvx"]
+[gd_scene load_steps=7 format=3 uid="uid://bmp4ial25ywvx"]
 
 [ext_resource type="Script" uid="uid://d3pxq815fuouw" path="res://Scripts/player.gd" id="1_onrkg"]
+[ext_resource type="AudioStream" uid="uid://bjelo43vq21db" path="res://Sounds/laser.mp3" id="2_y8w33"]
+[ext_resource type="AudioStream" uid="uid://cgy7rsbrnc4i3" path="res://Sounds/death.mp3" id="3_xa75v"]
+[ext_resource type="AudioStream" uid="uid://b5136i86bf4yj" path="res://Sounds/dégâts.mp3" id="4_58ae2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 32.0
@@ -11,6 +14,7 @@ load_path = "res://.godot/imported/vaisseau.png-480e54f0e47d7149ce9693a3a7ba8b12
 [node name="Player" type="Node2D" groups=["player"]]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="RigidBody2D" groups=["player"]]
@@ -24,4 +28,14 @@ texture = SubResource("CompressedTexture2D_kelma")
 [node name="Marker3D" type="Marker2D" parent="RigidBody2D" groups=["player"]]
 position = Vector2(1, -28)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["player"]]
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y8w33")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xa75v")
+volume_db = -10.0
+
+[node name="TakeDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_58ae2")
