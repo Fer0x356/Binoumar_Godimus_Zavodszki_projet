@@ -1,36 +1,45 @@
-extends CharacterBody2D
+extends Node2D
 
+# Signal pour prévenir qu'un météore est détruit
+signal meteor_destroyed
+
+var character_body: CharacterBody2D
 var collider: CollisionShape2D
 var area_collider: CollisionShape2D
 var sprite: Sprite2D
 
-@onready var explosion_sound: AudioStreamPlayer2D = $"../ExplosionSound"
+# Sons
+@onready var explosion_sound: AudioStreamPlayer2D = $"ExplosionSound"
 @onready var explode_sound = $ExplodeSound if has_node("ExplodeSound") else null
 
-@onready var explosion_animation: AnimatedSprite2D = $ExplosionAnimation if has_node("ExplosionAnimation") else null
+@onready var explosion_animation: AnimatedSprite2D = $CharacterBody2D/ExplosionAnimation
 
 var is_dying: bool = false
 
 var randomGenerator := RandomNumberGenerator.new()
 var randomSize: float
 var randomRotationSpeed: float
-
 var life: int
 var speed: float
 var direction: Vector2
 
 func _ready() -> void:
-	collider = $CollisionShape2D
-	area_collider = $Area2D/CollisionShape2D
-	sprite = $Sprite2D
+	character_body = $CharacterBody2D
+	collider = $CharacterBody2D/CollisionShape2D
+	area_collider = $CharacterBody2D/Area2D/CollisionShape2D
+	sprite = $CharacterBody2D/Sprite2D
 	
-	collision_layer = 2
-	collision_mask = 1
+	# Connecter le signal de l'Area2D
+	var area = $CharacterBody2D/Area2D
+	if area and not area.body_entered.is_connected(_on_body_entered):
+		area.body_entered.connect(_on_body_entered)
+	
+	# Configuration des collisions : les météores ne se bloquent pas entre eux
+	character_body.collision_layer = 2  # Les météores sont sur la layer 2
+	character_body.collision_mask = 1   # Les météores détectent seulement la layer 1 (joueur, murs, etc.)
 	
 	randomGenerator.randomize()
 	randomSize = randomGenerator.randi_range(2, 8)
-
-	# change la taille du meteor
 	var scale_vec = Vector2(randomSize, randomSize)
 	collider.scale = scale_vec
 	area_collider.scale = scale_vec
@@ -40,42 +49,37 @@ func _ready() -> void:
 	if explosion_animation:
 		explosion_animation.scale = scale_vec * 0.3
 	
+	# La vie dépend de la taille
 	life = 1
 	
-	# change la vitesse de rotation random
 	randomRotationSpeed = randomGenerator.randi_range(-180, 180)
 	if randomRotationSpeed == 0: 
 		randomRotationSpeed = -1
 	
-	# et sa taille influence sa vitesse
 	var base_speed = randomGenerator.randi_range(100, 200)
 	speed = base_speed / (sqrt(randomSize)/2)
 	
-	# vise le joueur
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		var target = players[0].global_position
 		direction = (target - global_position).normalized()
 
 func _physics_process(delta: float) -> void:
-	if is_dying:
-		return
-		
-	velocity = direction * speed
-	move_and_slide()
+	# Déplacement constant
+	character_body.velocity = direction * speed
+	character_body.move_and_slide()
+	# Rotation manuelle
+	character_body.rotation += deg_to_rad(randomRotationSpeed) * delta
 
-	rotation += deg_to_rad(randomRotationSpeed) * delta
-
+# Fonction pour prendre des dégâts
 func take_damage(amount: int) -> void:
-	if is_dying:
-		return
-		
 	life -= amount
 	explosion_sound.play()
 	
 	if life <= 0:
+		emit_signal("meteor_destroyed")
 		die()
-
+		
 # fonction pour faire mourir le meteor
 func die() -> void:
 	is_dying = true
@@ -97,12 +101,10 @@ func die() -> void:
 	
 	queue_free()
 
-# collision avec le joueur
+# Fonction pour que le météore fasse des dégâts
 func _on_body_entered(body: Node) -> void:
-	if is_dying:
-		return
-		
 	if body.is_in_group("player"):
 		if body.has_method("take_damage"):
 			body.take_damage(1)
-		die()
+		
+		queue_free()
