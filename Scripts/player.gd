@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 	look_at(get_global_mouse_position());
 	rotation_degrees += 90
 	
+	
+	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 

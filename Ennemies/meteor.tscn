@@ -58,16 +58,16 @@ animations = [{
 }]
 
 [node name="Meteor" type="Node2D" groups=["meteor", "meteores"]]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["meteores"]]
-collision_layer = 2
 script = ExtResource("1_daj6f")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["meteor", "meteores"]]
+collision_layer = 2
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" groups=["meteores"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" groups=["meteores"]]
 physics_interpolation_mode = 2
-scale = Vector2(10.24, 10.24)
+scale = Vector2(11.05, 11.05)
 shape = SubResource("RectangleShape2D_daj6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["meteores"]]
@@ -85,6 +85,8 @@ texture = ExtResource("1_qxnof")
 visible = false
 sprite_frames = SubResource("SpriteFrames_tw0vd")
 animation = &"explode"
+frame = 5
+frame_progress = 1.0
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_h2xkk")
