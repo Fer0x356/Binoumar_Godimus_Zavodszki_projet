@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 const BULLET = preload("uid://kxk11e6gc30o")
+@onready var game_over = preload("res://HUD/Menu/GameOver.tscn")
 @onready var shoot_sound: AudioStreamPlayer2D = $"../ShootSound"
 @onready var death_sound: AudioStreamPlayer2D = $"../DeathSound"
 @onready var take_damages: AudioStreamPlayer2D = $"../TakeDamage"
@@ -34,4 +35,5 @@ func take_damage(amount: int) -> void:
 	take_damages.play()
 	if life <= 0:
 		death_sound.play()
+		get_tree().change_scene_to_packed(game_over)	
 		queue_free()

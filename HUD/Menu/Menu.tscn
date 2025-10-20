@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://pr5rbmwwmyyt"]
 
-[ext_resource type="Script" uid="uid://ch1jssmovu87p" path="res://HUD/Menu/menu.gd" id="1_dpbbd"]
+[ext_resource type="Script" uid="uid://ch1jssmovu87p" path="res://Scripts/menu.gd" id="1_dpbbd"]
 [ext_resource type="FontFile" uid="uid://bsf24ue2nfgtb" path="res://NMSFuturaProBook_Kerned.ttf" id="1_y1bsj"]
 [ext_resource type="Texture2D" uid="uid://b1cqon7ja8mn3" path="res://HUD/Menu/star1.png" id="2_1bucq"]
 [ext_resource type="Texture2D" uid="uid://rbg000er7eql" path="res://HUD/Menu/SpaceShip.png" id="3_dpbbd"]
@@ -40,20 +40,22 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -332.0
-offset_top = 166.0
+offset_top = 222.0
 offset_right = 332.0
-offset_bottom = 247.0
+offset_bottom = 303.0
 grow_horizontal = 2
 text = "METEORE DEFENDER"
 label_settings = SubResource("LabelSettings_20qja")
+horizontal_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 418.0
-offset_top = 400.0
-offset_right = 735.0
-offset_bottom = 518.0
+anchor_left = 0.3628472
+anchor_top = 0.61728394
+anchor_right = 0.6380208
+anchor_bottom = 0.7993827
 theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
 
 [node name="btnStart" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -77,112 +79,128 @@ offset_bottom = 40.0
 
 [node name="imgStar1" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 947.0
-offset_top = 222.0
-offset_right = 1149.0
-offset_bottom = 424.0
+anchor_left = 0.8220486
+anchor_top = 0.3425926
+anchor_right = 0.9973958
+anchor_bottom = 0.654321
+offset_bottom = -3.0517578e-05
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar11" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 236.0
-offset_right = 898.0
-offset_bottom = 366.0
+anchor_left = 0.6666667
+anchor_top = 0.36419752
+anchor_right = 0.7795139
+anchor_bottom = 0.5648148
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar9" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 89.0
-offset_top = 399.0
-offset_right = 291.0
-offset_bottom = 601.0
+anchor_left = 0.07725695
+anchor_top = 0.6157407
+anchor_right = 0.25260416
+anchor_bottom = 0.92746913
+offset_top = 3.0517578e-05
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 62.0
-offset_right = 242.0
-offset_bottom = 235.0
+anchor_left = 0.059895832
+anchor_top = 0.095679015
+anchor_right = 0.21006945
+anchor_bottom = 0.36265433
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar3" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 247.0
-offset_top = 251.0
-offset_right = 358.0
-offset_bottom = 362.0
+anchor_left = 0.21440972
+anchor_top = 0.38734567
+anchor_right = 0.3107639
+anchor_bottom = 0.55864197
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar4" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 694.0
-offset_top = 47.0
-offset_right = 814.0
-offset_bottom = 167.0
+anchor_left = 0.6024306
+anchor_top = 0.072530866
+anchor_right = 0.7065972
+anchor_bottom = 0.25771606
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar8" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 530.0
-offset_top = 292.0
-offset_right = 623.0
-offset_bottom = 385.0
+anchor_left = 0.46006945
+anchor_top = 0.45061728
+anchor_right = 0.5407986
+anchor_bottom = 0.5941358
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar5" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 942.0
-offset_top = 130.0
-offset_right = 998.0
-offset_bottom = 186.0
+anchor_left = 0.8177083
+anchor_top = 0.20061728
+anchor_right = 0.8663194
+anchor_bottom = 0.28703704
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar7" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 294.0
-offset_right = 136.0
-offset_bottom = 350.0
+anchor_left = 0.06944445
+anchor_top = 0.4537037
+anchor_right = 0.11805555
+anchor_bottom = 0.54012346
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar10" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 126.0
-offset_right = 340.0
-offset_bottom = 182.0
+anchor_left = 0.24652778
+anchor_top = 0.19444445
+anchor_right = 0.2951389
+anchor_bottom = 0.2808642
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgStar6" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 39.0
-offset_right = 521.0
-offset_bottom = 91.0
+anchor_left = 0.40711805
+anchor_top = 0.060185187
+anchor_right = 0.45225695
+anchor_bottom = 0.1404321
 texture = ExtResource("2_1bucq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="imgSpaceship" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 765.99994
-offset_top = 464.0
-offset_right = 993.99994
-offset_bottom = 692.0
+anchor_left = 0.6649305
+anchor_top = 0.7160494
+anchor_right = 0.9394614
+anchor_bottom = 0.8130125
+offset_right = -88.25958
+offset_bottom = 165.16791
 rotation = -0.58927935
 texture = ExtResource("3_dpbbd")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="button_down" from="Buttons/btnStart" to="." method="_on_btn_start_button_down"]
 [connection signal="button_down" from="Buttons/btnQuit" to="." method="_on_btn_quit_button_down"]

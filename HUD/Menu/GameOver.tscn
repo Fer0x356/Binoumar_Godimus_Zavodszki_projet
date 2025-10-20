@@ -16,7 +16,7 @@ font = ExtResource("2_xqv4k")
 font_size = 74
 font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
-[node name="Menu" type="Control"]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
