@@ -8,9 +8,10 @@
 
 [node name="Meteor" type="Node2D" groups=["meteor", "meteores"]]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["meteores"]]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("node_score") groups=["meteores"]]
 collision_layer = 2
 script = ExtResource("1_daj6f")
+node_score = NodePath("")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" groups=["meteores"]]
 

@@ -7,6 +7,7 @@ var sprite: Sprite2D
 # Sons (à configurer dans la scène)
 @onready var explosion_sound: AudioStreamPlayer2D = $"../ExplosionSound"
 @onready var explode_sound = $ExplodeSound if has_node("ExplodeSound") else null
+@onready var node_score: Node2D = $Score
 
 var randomGenerator := RandomNumberGenerator.new()
 var randomSize: float
@@ -73,7 +74,9 @@ func take_damage(amount: int) -> void:
 			explode_sound.play()
 			# Attendre que le son finisse avant de détruire
 			await explode_sound.finished
+		node_score.gain_score(1)
 		queue_free()
+		
 
 # Fonction pour que le météore fasse des dégâts
 func _on_body_entered(body: Node) -> void:
