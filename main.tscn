@@ -23,4 +23,14 @@ stream = ExtResource("3_h2yge")
 volume_db = -10.0
 script = ExtResource("4_1bvp3")
 
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("ui_label", "player") groups=["score_manager"]]
+script = ExtResource("6_7mycd")
+ui_label = NodePath("CanvasLayer/Label")
+player = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D"]
 [node name="Pause" parent="." instance=ExtResource("6_7mycd")]
+
+[node name="Label" type="Label" parent="Node2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0

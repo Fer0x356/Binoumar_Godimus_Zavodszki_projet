@@ -107,4 +107,5 @@ func _on_body_entered(body: Node) -> void:
 		if body.has_method("take_damage"):
 			body.take_damage(1)
 		
-		queue_free()
+		# Utiliser call_deferred pour supprimer après la frame physique
+		call_deferred("queue_free")

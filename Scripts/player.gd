@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal perteHP
+
 const BULLET = preload("uid://kxk11e6gc30o")
 @onready var game_over = preload("res://HUD/Menu/GameOver.tscn")
 @onready var shoot_sound: AudioStreamPlayer2D = $"../ShootSound"
@@ -26,14 +28,13 @@ func shoot():
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position());
 	rotation_degrees += 90
-	
-	
-	
+		
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
 func take_damage(amount: int) -> void:
 	life -= amount
+  emit_signal("perteHP")
 	if visible == true:
 		take_damages.play()
 	if life <= 0:
@@ -44,4 +45,3 @@ func take_damage(amount: int) -> void:
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_packed(game_over)
 		queue_free()
-		
