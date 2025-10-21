@@ -2,6 +2,11 @@ extends Area2D
 
 var speed = 750
 
+func _ready():
+	# Configuration des collisions pour les projectiles
+	collision_layer = 4  # Les projectiles sont sur la layer 4
+	collision_mask = 2   # Les projectiles détectent la layer 2 (météores)
+
 func _physics_process(delta):
 	position -= transform.y * speed * delta
 

@@ -34,9 +34,15 @@ func _ready() -> void:
 	if area and not area.body_entered.is_connected(_on_body_entered):
 		area.body_entered.connect(_on_body_entered)
 	
-	# Configuration des collisions : les météores ne se bloquent pas entre eux
+	# Configuration des collisions du CharacterBody2D
+	# Layer 2 = météores, détecte Layer 4 = projectiles (mais pas Layer 1 = joueur)
 	character_body.collision_layer = 2  # Les météores sont sur la layer 2
-	character_body.collision_mask = 1   # Les météores détectent seulement la layer 1 (joueur, murs, etc.)
+	character_body.collision_mask = 4   # Les météores détectent seulement la layer 4 (projectiles)
+	
+	# Configuration des collisions pour l'Area2D (pour détecter le joueur)
+	if area:
+		area.collision_layer = 0  # L'Area2D n'est pas détectable
+		area.collision_mask = 1   # L'Area2D détecte seulement la layer 1 (joueur)
 	
 	randomGenerator.randomize()
 	randomSize = randomGenerator.randi_range(2, 8)
@@ -65,6 +71,11 @@ func _ready() -> void:
 		direction = (target - global_position).normalized()
 
 func _physics_process(delta: float) -> void:
+	# Ne pas bouger si le météore est en train de mourir
+	if is_dying:
+		character_body.velocity = Vector2.ZERO
+		return
+		
 	# Déplacement constant
 	character_body.velocity = direction * speed
 	character_body.move_and_slide()
@@ -103,9 +114,34 @@ func die() -> void:
 
 # Fonction pour que le météore fasse des dégâts
 func _on_body_entered(body: Node) -> void:
+	if is_dying:
+		return
+		
 	if body.is_in_group("player"):
 		if body.has_method("take_damage"):
 			body.take_damage(1)
 		
-		# Utiliser call_deferred pour supprimer après la frame physique
-		call_deferred("queue_free")
+		# Marquer comme en train de mourir
+		is_dying = true
+		
+		# Désactiver les colliders pour éviter les doubles collisions
+		collider.set_deferred("disabled", true)
+		area_collider.set_deferred("disabled", true)
+		
+		# Arrêter le mouvement
+		character_body.velocity = Vector2.ZERO
+		
+		# Cacher le sprite et jouer l'animation d'explosion
+		sprite.visible = false
+		
+		if explode_sound:
+			explode_sound.play()
+		
+		if explosion_animation:
+			explosion_animation.visible = true
+			explosion_animation.play("explode")
+			await explosion_animation.animation_finished
+		else:
+			await get_tree().create_timer(0.5).timeout
+		
+		queue_free()

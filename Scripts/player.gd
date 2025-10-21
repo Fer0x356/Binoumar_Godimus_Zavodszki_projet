@@ -12,6 +12,11 @@ var life = 3
 var fire_rate : float = 0.15
 var can_shoot : bool = true
 
+func _ready():
+	# Configuration des collisions pour le joueur
+	collision_layer = 1  # Le joueur est sur la layer 1
+	collision_mask = 0   # Le joueur ne réagit pas physiquement aux autres objets
+
 func shoot():
 	if not can_shoot:
 		return
