@@ -34,8 +34,7 @@ func _process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	life -= amount
-	take_damages.play()
+
 	if life <= 0:
-		death_sound.play()
-		get_tree().change_scene_to_packed(game_over)	
+	
 		queue_free()
