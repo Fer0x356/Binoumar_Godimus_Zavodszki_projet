@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	life -= amount
-  emit_signal("perteHP")
+	emit_signal("perteHP")
 	if visible == true:
 		take_damages.play()
 	if life <= 0:
