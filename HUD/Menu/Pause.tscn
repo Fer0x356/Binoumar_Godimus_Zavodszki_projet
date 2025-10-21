@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8dn4822msyvn"]
+
+[ext_resource type="Script" uid="uid://fa12tvqkvs5m" path="res://Scripts/pause.gd" id="1_4nys6"]
+[ext_resource type="FontFile" uid="uid://bsf24ue2nfgtb" path="res://NMSFuturaProBook_Kerned.ttf" id="2_nc5ps"]
+
+[sub_resource type="Gradient" id="Gradient_ltcy3"]
+colors = PackedColorArray(1, 1, 1, 1, 0.5339028, 0.52961165, 0.57752967, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y1bsj"]
+gradient = SubResource("Gradient_ltcy3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_20qja"]
+font = ExtResource("2_nc5ps")
+font_size = 74
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Pause" type="CanvasLayer"]
+script = ExtResource("1_4nys6")
+
+[node name="imgBackground" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.7529412)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_y1bsj")
+
+[node name="lblTitle" type="Label" parent="imgBackground"]
+modulate = Color(1, 1, 1, 0.7529412)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.0
+offset_top = 222.0
+offset_right = 332.0
+offset_bottom = 303.0
+grow_horizontal = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_20qja")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0.7529412)
+anchors_preset = -1
+anchor_left = 0.3628472
+anchor_top = 0.61728394
+anchor_right = 0.6380208
+anchor_bottom = 0.7993827
+theme_override_constants/separation = 30
+
+[node name="btnStart" type="Button" parent="Buttons"]
+modulate = Color(1, 1, 1, 0.7529412)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_nc5ps")
+theme_override_font_sizes/font_size = 34
+text = "CONTINUE
+"
+
+[node name="btnQuit" type="Button" parent="Buttons"]
+modulate = Color(1, 1, 1, 0.7529412)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_nc5ps")
+theme_override_font_sizes/font_size = 34
+text = "QUIT"
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0.7529412)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="button_down" from="Buttons/btnStart" to="." method="_on_btn_start_button_down"]
+[connection signal="button_down" from="Buttons/btnQuit" to="." method="_on_btn_quit_button_down"]
