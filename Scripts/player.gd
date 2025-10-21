@@ -34,8 +34,14 @@ func _process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	life -= amount
-	emit_signal("perteHP")
-	take_damages.play()
+  emit_signal("perteHP")
+	if visible == true:
+		take_damages.play()
 	if life <= 0:
-		death_sound.play()
+		if visible == true :
+			death_sound.play()
+		self.visible = false
+		
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_packed(game_over)
+		queue_free()
