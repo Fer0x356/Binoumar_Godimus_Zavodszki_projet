@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8dn4822msyvn"]
+[gd_scene load_steps=6 format=3 uid="uid://b8dn4822msyvn"]
 
-[ext_resource type="Script" uid="uid://bvdeos4hcnvbv" path="res://HUD/Menu/pause.gd" id="1_4nys6"]
+[ext_resource type="Script" uid="uid://fa12tvqkvs5m" path="res://Scripts/pause.gd" id="1_4nys6"]
 [ext_resource type="FontFile" uid="uid://bsf24ue2nfgtb" path="res://NMSFuturaProBook_Kerned.ttf" id="2_nc5ps"]
-[ext_resource type="Texture2D" uid="uid://b1cqon7ja8mn3" path="res://HUD/Menu/star1.png" id="3_dxx5o"]
-[ext_resource type="Texture2D" uid="uid://rbg000er7eql" path="res://HUD/Menu/SpaceShip.png" id="4_koa8b"]
 
 [sub_resource type="Gradient" id="Gradient_ltcy3"]
 colors = PackedColorArray(1, 1, 1, 1, 0.5339028, 0.52961165, 0.57752967, 1)
@@ -16,18 +14,11 @@ font = ExtResource("2_nc5ps")
 font_size = 74
 font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
-[node name="Pause" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Pause" type="CanvasLayer"]
 script = ExtResource("1_4nys6")
 
 [node name="imgBackground" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.36862746)
-layout_mode = 1
+modulate = Color(1, 1, 1, 0.7529412)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,6 +27,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_y1bsj")
 
 [node name="lblTitle" type="Label" parent="imgBackground"]
+modulate = Color(1, 1, 1, 0.7529412)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -50,15 +42,16 @@ label_settings = SubResource("LabelSettings_20qja")
 horizontal_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 0
+modulate = Color(1, 1, 1, 0.7529412)
+anchors_preset = -1
 anchor_left = 0.3628472
 anchor_top = 0.61728394
 anchor_right = 0.6380208
 anchor_bottom = 0.7993827
 theme_override_constants/separation = 30
-metadata/_edit_use_anchors_ = true
 
 [node name="btnStart" type="Button" parent="Buttons"]
+modulate = Color(1, 1, 1, 0.7529412)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_nc5ps")
@@ -67,6 +60,7 @@ text = "CONTINUE
 "
 
 [node name="btnQuit" type="Button" parent="Buttons"]
+modulate = Color(1, 1, 1, 0.7529412)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_nc5ps")
@@ -74,134 +68,9 @@ theme_override_font_sizes/font_size = 34
 text = "QUIT"
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
-layout_mode = 0
+modulate = Color(1, 1, 1, 0.7529412)
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="imgStar1" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.8220486
-anchor_top = 0.3425926
-anchor_right = 0.9973958
-anchor_bottom = 0.654321
-offset_bottom = -3.0517578e-05
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar11" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.6666667
-anchor_top = 0.36419752
-anchor_right = 0.7795139
-anchor_bottom = 0.5648148
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar9" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.07725695
-anchor_top = 0.6157407
-anchor_right = 0.25260416
-anchor_bottom = 0.92746913
-offset_top = 3.0517578e-05
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar2" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.059895832
-anchor_top = 0.095679015
-anchor_right = 0.21006945
-anchor_bottom = 0.36265433
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar3" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.21440972
-anchor_top = 0.38734567
-anchor_right = 0.3107639
-anchor_bottom = 0.55864197
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar4" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.6024306
-anchor_top = 0.072530866
-anchor_right = 0.7065972
-anchor_bottom = 0.25771606
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar8" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.46006945
-anchor_top = 0.45061728
-anchor_right = 0.5407986
-anchor_bottom = 0.5941358
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar5" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.8177083
-anchor_top = 0.20061728
-anchor_right = 0.8663194
-anchor_bottom = 0.28703704
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar7" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.06944445
-anchor_top = 0.4537037
-anchor_right = 0.11805555
-anchor_bottom = 0.54012346
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar10" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.24652778
-anchor_top = 0.19444445
-anchor_right = 0.2951389
-anchor_bottom = 0.2808642
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgStar6" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.40711805
-anchor_top = 0.060185187
-anchor_right = 0.45225695
-anchor_bottom = 0.1404321
-texture = ExtResource("3_dxx5o")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="imgSpaceship" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.6649305
-anchor_top = 0.7160494
-anchor_right = 0.9394614
-anchor_bottom = 0.8130125
-offset_right = -88.25958
-offset_bottom = 165.16791
-rotation = -0.58927935
-texture = ExtResource("4_koa8b")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="button_down" from="Buttons/btnStart" to="." method="_on_btn_start_button_down"]
 [connection signal="button_down" from="Buttons/btnQuit" to="." method="_on_btn_quit_button_down"]
