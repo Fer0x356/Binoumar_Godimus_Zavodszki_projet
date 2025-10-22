@@ -19,7 +19,7 @@ func toggle_pause() -> void:
 func _on_btn_quit_button_down() -> void:
 	# Retourne au menu principal
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://HUD/Menu/Menu.tscn")
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 
 func _on_btn_start_button_down() -> void:
 	visible = false

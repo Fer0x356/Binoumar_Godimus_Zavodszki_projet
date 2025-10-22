@@ -3,7 +3,7 @@ extends RigidBody2D
 signal perteHP
 
 const BULLET = preload("uid://kxk11e6gc30o")
-@onready var game_over = preload("res://HUD/Menu/GameOver.tscn")
+@export var game_over: PackedScene
 @onready var shoot_sound: AudioStreamPlayer2D = $"../ShootSound"
 @onready var death_sound: AudioStreamPlayer2D = $"../DeathSound"
 @onready var take_damages: AudioStreamPlayer2D = $"../TakeDamage"

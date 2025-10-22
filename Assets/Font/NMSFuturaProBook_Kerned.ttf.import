@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bsf24ue2nfgtb"
-path="res://.godot/imported/NMSFuturaProBook_Kerned.ttf-372cff02b120e47e1b5c5dac7c2ac0e4.fontdata"
+path="res://.godot/imported/NMSFuturaProBook_Kerned.ttf-b779f254d6b8b5011a18efa9afa5c954.fontdata"
 
 [deps]
 
-source_file="res://NMSFuturaProBook_Kerned.ttf"
-dest_files=["res://.godot/imported/NMSFuturaProBook_Kerned.ttf-372cff02b120e47e1b5c5dac7c2ac0e4.fontdata"]
+source_file="res://Assets/Font/NMSFuturaProBook_Kerned.ttf"
+dest_files=["res://.godot/imported/NMSFuturaProBook_Kerned.ttf-b779f254d6b8b5011a18efa9afa5c954.fontdata"]
 
 [params]
 

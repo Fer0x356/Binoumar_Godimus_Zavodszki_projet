@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://17k85hv7uri4"
-path="res://.godot/imported/NMSGeoSans_Kerned.ttf-7567c15cf12fa366f785dc495921cc0e.fontdata"
+path="res://.godot/imported/NMSGeoSans_Kerned.ttf-20625d98d15fbe78ee917dd8f2f7e5a1.fontdata"
 
 [deps]
 
-source_file="res://NMSGeoSans_Kerned.ttf"
-dest_files=["res://.godot/imported/NMSGeoSans_Kerned.ttf-7567c15cf12fa366f785dc495921cc0e.fontdata"]
+source_file="res://Assets/Font/NMSGeoSans_Kerned.ttf"
+dest_files=["res://.godot/imported/NMSGeoSans_Kerned.ttf-20625d98d15fbe78ee917dd8f2f7e5a1.fontdata"]
 
 [params]
 

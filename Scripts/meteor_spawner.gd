@@ -1,6 +1,6 @@
 extends Marker2D
 
-const Meteor = preload("res://Ennemies/meteor.tscn")
+const Meteor = preload("res://Scene/Ennemies/meteor.tscn")
 
 @export var spawn_distance_min: float = 1000  # Distance minimale du spawn
 @export var spawn_distance_max: float = 1200  # Distance maximale du spawn

@@ -1,8 +1,10 @@
 extends Node2D
 
+signal Score
+
 @export var ui_label: Label
 @export var player: Node2D
-var score = 0
+@export var score = 0
 
 func _ready() -> void:
 	add_to_group("score_manager")
@@ -21,7 +23,11 @@ func refresh_ui():
 
 func gain_score(intScore):
 	score += intScore
+	emit_signal("Score")
 	refresh_ui()
+	# Save score to global
+	if has_node("/root/Global"):
+		get_node("/root/Global").set_score(score)
 
 # Fonction appelée quand un météore est détruit
 func _on_meteor_destroyed():

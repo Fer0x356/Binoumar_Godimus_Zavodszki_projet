@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmp4ial25ywvx"]
+[gd_scene load_steps=8 format=3 uid="uid://bmp4ial25ywvx"]
 
 [ext_resource type="Script" uid="uid://d3pxq815fuouw" path="res://Scripts/player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://cuy8frug25s18" path="res://Scene/Menu/GameOver.tscn" id="2_ivevv"]
 [ext_resource type="AudioStream" uid="uid://bjelo43vq21db" path="res://Sounds/laser.mp3" id="2_y8w33"]
 [ext_resource type="AudioStream" uid="uid://cgy7rsbrnc4i3" path="res://Sounds/death.mp3" id="3_xa75v"]
 [ext_resource type="AudioStream" uid="uid://b5136i86bf4yj" path="res://Sounds/dégâts.mp3" id="4_58ae2"]
@@ -19,6 +20,7 @@ mass = 0.001
 gravity_scale = 0.0
 freeze = true
 script = ExtResource("1_onrkg")
+game_over = ExtResource("2_ivevv")
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="RigidBody2D" groups=["player"]]
 shape = SubResource("CircleShape2D_hqtel")

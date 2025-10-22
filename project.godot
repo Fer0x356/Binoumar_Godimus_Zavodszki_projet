@@ -15,9 +15,17 @@ run/main_scene="uid://pr5rbmwwmyyt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/global.gd"
+
 [display]
 
 window/size/mode=3
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [global_group]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8dn4822msyvn"]
 
-[ext_resource type="Script" uid="uid://fa12tvqkvs5m" path="res://Scripts/pause.gd" id="1_4nys6"]
-[ext_resource type="FontFile" uid="uid://bsf24ue2nfgtb" path="res://NMSFuturaProBook_Kerned.ttf" id="2_nc5ps"]
+[ext_resource type="Script" uid="uid://fa12tvqkvs5m" path="res://Scripts/pause.gd" id="1_edvlh"]
+[ext_resource type="FontFile" uid="uid://bsf24ue2nfgtb" path="res://Assets/Font/NMSFuturaProBook_Kerned.ttf" id="2_5qoqq"]
 
 [sub_resource type="Gradient" id="Gradient_ltcy3"]
 colors = PackedColorArray(1, 1, 1, 1, 0.5339028, 0.52961165, 0.57752967, 1)
@@ -10,12 +10,12 @@ colors = PackedColorArray(1, 1, 1, 1, 0.5339028, 0.52961165, 0.57752967, 1)
 gradient = SubResource("Gradient_ltcy3")
 
 [sub_resource type="LabelSettings" id="LabelSettings_20qja"]
-font = ExtResource("2_nc5ps")
+font = ExtResource("2_5qoqq")
 font_size = 74
 font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
 [node name="Pause" type="CanvasLayer"]
-script = ExtResource("1_4nys6")
+script = ExtResource("1_edvlh")
 
 [node name="imgBackground" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.7529412)
@@ -54,7 +54,7 @@ theme_override_constants/separation = 30
 modulate = Color(1, 1, 1, 0.7529412)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_nc5ps")
+theme_override_fonts/font = ExtResource("2_5qoqq")
 theme_override_font_sizes/font_size = 34
 text = "CONTINUE
 "
@@ -63,7 +63,7 @@ text = "CONTINUE
 modulate = Color(1, 1, 1, 0.7529412)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_nc5ps")
+theme_override_fonts/font = ExtResource("2_5qoqq")
 theme_override_font_sizes/font_size = 34
 text = "QUIT"
 
